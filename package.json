@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/lorcanmcdonald/ServerHere/issues"
   },
-  "homepage": "https://github.com/lorcanmcdonald/ServerHere#readme"
+  "homepage": "https://github.com/lorcanmcdonald/ServerHere#readme",
+  "dependencies": {
+    "handlebars": "^3.0.3"
+  }
 }
