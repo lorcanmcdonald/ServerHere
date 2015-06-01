@@ -23,7 +23,7 @@ Server.new(function (req, res) {
                 if (err) {
                     Server.serverError(res, err);
                 }
-                var baseUrl = pathname.match(/^\/$/)? '': pathname + '/';
+                var baseUrl = pathname.match(/^\/$/)? '/' : pathname + '/';
                 res.end(templates.main({baseUrl: baseUrl, files: files}));
             });
         } else {

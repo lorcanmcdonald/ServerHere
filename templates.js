@@ -10,7 +10,7 @@ var main = handlebars.compile([
 '<ol>',
 '{{#each files}}',
 '<li>',
-'<a href="{{baseUrl}}{{this}}">{{this}}</a></li>',
+'<a href="{{../baseUrl}}{{this}}">{{this}}</a></li>',
 '{{/each}}',
 '</ol>',
 '</body>',
