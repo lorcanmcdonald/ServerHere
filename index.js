@@ -30,8 +30,8 @@ Server.new(function (req, res) {
             var contentType = Server.mimetype(pathname);
             res.writeHead(200, Server.contentTypes[contentType]);
             fs.readFile('.' + pathname, function(err, data){
-                if(err) { throw err; }
-                res.end(data);
+                if(err) { return Server.serverError(res, err); }
+                return res.end(data);
             });
         }
     });
