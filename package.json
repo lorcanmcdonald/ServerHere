@@ -1,0 +1,28 @@
+{
+  "name": "serverhere",
+  "version": "1.0.0",
+  "description": "Serve a folder via HTTP",
+  "main": "index.js",
+  "bin": {
+    "ServerHere": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorcanmcdonald/ServerHere.git"
+  },
+  "keywords": [
+    "HTTP",
+    "server",
+    "web"
+  ],
+  "author": "Lorcan McDonald <lorcan@lorcanmcdonald.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lorcanmcdonald/ServerHere/issues"
+  },
+  "homepage": "https://github.com/lorcanmcdonald/ServerHere#readme"
+}
