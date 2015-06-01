@@ -16,6 +16,21 @@ exports.Server = (function(proc){
              res.writeHead(404, library.contentTypes['text/html']);
              res.end(templates.notFound());
            }
+           , mimetype: function(pathname){
+             var contentType = 'text/plain';
+             if(pathname.match(/html$/)) {
+                 contentType = 'text/html';
+             } else if(pathname.match(/\.css$/)) {
+                 contentType = 'text/css';
+             } else if(pathname.match(/\.svg$/)){
+                 contentType = 'image/svg';
+             } else if(pathname.match(/\.json$/)){
+                 contentType = 'application/json';
+             } else if(pathname.match(/\.js$/)){
+                 contentType = 'text/javascript';
+             }
+             return contentType;
+           }
            , contentTypes: { 'text/html':  {'Content-Type': 'text/html; charset=utf-8'}
                            , 'text/css': {'Content-Type': 'text/css; charset=utf-8'}
                            , 'text/plain': {'Content-Type': 'text/plain; charset=utf-8'}

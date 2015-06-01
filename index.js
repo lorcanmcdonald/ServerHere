@@ -9,12 +9,6 @@ Server.new(function (req, res) {
     console.log('req.url', req.url);
     var parsedUrl = url.parse(req.url, true);
     var pathname = parsedUrl.pathname;
-    var contentType = 'text/plain';
-    if(pathname === '/' || pathname.match(/html$/)) {
-        contentType = 'text/html';
-    } else if(pathname.match(/js$/)) {
-        contentType = 'text/javascript';
-    }
 
     fs.stat('.' + pathname, function (err, stats) {
         if(err && err.code === "ENOENT") {
@@ -32,18 +26,7 @@ Server.new(function (req, res) {
                 res.end(templates.main({baseUrl: baseUrl, files: files}));
             });
         } else {
-            contentType = 'text/plain';
-            if(pathname.match(/html$/)) {
-                contentType = 'text/html';
-            } else if(pathname.match(/\.css$/)) {
-                contentType = 'text/css';
-            } else if(pathname.match(/\.svg$/)){
-                contentType = 'image/svg';
-            } else if(pathname.match(/\.json$/)){
-                contentType = 'application/json';
-            } else if(pathname.match(/\.js$/)){
-                contentType = 'text/javascript';
-            }
+            var contentType = Server.mimetype(pathname);
             res.writeHead(200, Server.contentTypes[contentType]);
             fs.readFile('.' + pathname, function(err, data){
                 if(err) { throw err; }
